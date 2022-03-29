@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <SearchBar @getFilms="populeArrayFilms" />
-    <AppMain :films="arrFilms" />
+    <SearchBar @getFilms="populeArrayFilms" @getTVs="populeArrayTVs" />
+    <AppMain :films="arrFilms" :TVs="arrTVs" />
   </div>
 </template>
 
@@ -18,11 +18,15 @@ export default {
   data() {
     return {
       arrFilms: null,
+      arrTVs: null,
     };
   },
   methods: {
     populeArrayFilms(searchedFilms) {
       return (this.arrFilms = searchedFilms);
+    },
+    populeArrayTVs(searchedTVs) {
+      return (this.arrTVs = searchedTVs);
     },
   },
 };
