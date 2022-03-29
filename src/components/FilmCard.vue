@@ -1,5 +1,9 @@
 <template>
   <div class="card">
+    <img
+      :src="`https://image.tmdb.org/t/p/w342` + film.poster_path"
+      :alt="`copertina` + film.name"
+    />
     <div class="title">{{ film.title }}</div>
     <div class="original-title">{{ film.original_title }}</div>
     <div class="lang">
@@ -33,4 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "~mdb-ui-kit/css/mdb.min.css";
+img {
+  width: 100px;
+}
 </style>
