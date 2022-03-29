@@ -2,7 +2,7 @@
   <div class="card">
     <img
       :src="`https://image.tmdb.org/t/p/w342` + film.poster_path"
-      :alt="`copertina` + film.name"
+      :alt="`Copertina ` + film.name"
     />
     <div class="title">{{ film.title }}</div>
     <div class="original-title">{{ film.original_title }}</div>

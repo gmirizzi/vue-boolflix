@@ -50,6 +50,12 @@ export default {
           return element.original_language;
       }
     });
+    this.films.forEach((element) => {
+      return (element.vote_average = Math.floor(element.vote_average / 2) + 1);
+    });
+    this.TVs.forEach((element) => {
+      return (element.vote_average = Math.floor(element.vote_average / 2) + 1);
+    });
   },
 };
 </script>
