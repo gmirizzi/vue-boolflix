@@ -1,6 +1,6 @@
 <template>
   <main>
-    <FilmCard v-for="film in films" :key="film.id" />
+    <FilmCard v-for="film in films" :key="film.id" :film="film" />
   </main>
 </template>
 
