@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       query: "",
+      searchedFilms: null,
     };
   },
   methods: {
@@ -22,7 +23,8 @@ export default {
           `https://api.themoviedb.org/3/search/movie?api_key=01af620fbe2924c05e6048caa6f5c225&language=it-IT&query=${this.query}`
         )
         .then((response) => {
-          console.log(response);
+          this.searchedFilms = response.data.results;
+          console.log(this.searchedFilms);
         });
     },
   },
