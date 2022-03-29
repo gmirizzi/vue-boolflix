@@ -2,8 +2,6 @@
   <main>
     <section>
       <h1>Film</h1>
-      <font-awesome-icon icon="fa-solid fa-star" />
-      <font-awesome-icon icon="fa-regular fa-star" />
       <FilmCard v-for="film in films" :key="film.id" :film="film" />
     </section>
     <section>

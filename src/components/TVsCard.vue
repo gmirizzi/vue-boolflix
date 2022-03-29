@@ -13,7 +13,20 @@
       ></i>
       <span v-else>{{ serie.original_language }}</span>
     </div>
-    <div class="rate">{{ serie.vote_average }}</div>
+    <div class="rate">
+      <div class="rate">
+        <font-awesome-icon
+          v-for="n in serie.vote_average"
+          icon="fa-solid fa-star"
+          :key="n"
+        />
+        <font-awesome-icon
+          v-for="n in 5 - serie.vote_average"
+          icon="fa-regular fa-star"
+          :key="n"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

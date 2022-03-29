@@ -13,7 +13,18 @@
       ></i>
       <span v-else>{{ film.original_language }}</span>
     </div>
-    <div class="rate">{{ film.vote_average }}</div>
+    <div class="rate">
+      <font-awesome-icon
+        v-for="n in film.vote_average"
+        icon="fa-solid fa-star"
+        :key="n"
+      />
+      <font-awesome-icon
+        v-for="n in 5 - film.vote_average"
+        icon="fa-regular fa-star"
+        :key="n"
+      />
+    </div>
   </div>
 </template>
 
