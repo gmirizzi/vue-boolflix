@@ -1,12 +1,20 @@
 <template>
   <main>
     <section>
-      <h1>Film</h1>
-      <FilmCard v-for="film in films" :key="film.id" :film="film" />
+      <div class="container">
+        <h1>Film</h1>
+        <div class="row">
+          <FilmCard v-for="film in films" :key="film.id" :film="film" />
+        </div>
+      </div>
     </section>
     <section>
-      <h1>Serie TV</h1>
-      <TVsCard v-for="serie in TVs" :key="serie.id" :serie="serie" />
+      <div class="container">
+        <h1>Serie TV</h1>
+        <div class="row">
+          <TVsCard v-for="serie in TVs" :key="serie.id" :serie="serie" />
+        </div>
+      </div>
     </section>
   </main>
 </template>
