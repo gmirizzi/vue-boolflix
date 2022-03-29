@@ -25,6 +25,7 @@ export default {
         .then((response) => {
           this.searchedFilms = response.data.results;
           console.log(this.searchedFilms);
+          this.$emit("getFilms", this.searchedFilms);
         });
     },
   },
