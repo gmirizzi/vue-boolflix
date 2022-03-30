@@ -68,4 +68,28 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.item {
+  overflow: auto;
+  background-color: black;
+  height: 500px;
+  .poster {
+    height: 100%;
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .info {
+    display: none;
+  }
+  &:hover {
+    .poster {
+      display: none;
+    }
+    .info {
+      display: block;
+    }
+  }
+}
+</style>
