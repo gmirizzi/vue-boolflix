@@ -28,7 +28,6 @@ export default {
           )
           .then((response) => {
             this.searchedFilms = response.data.results;
-            console.log(this.searchedFilms);
             this.$emit("getFilms", this.searchedFilms);
           });
       }
@@ -41,7 +40,6 @@ export default {
           )
           .then((response) => {
             this.searchedTVs = response.data.results;
-            console.log(this.searchedTVs);
             this.$emit("getTVs", this.searchedTVs);
           });
       }
