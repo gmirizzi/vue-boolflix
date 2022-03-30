@@ -1,9 +1,10 @@
 <template>
-  <div class="col">
-    <div class="card">
+  <div class="col-4">
+    <div class="item">
       <img
         :src="`https://image.tmdb.org/t/p/w342` + film.poster_path"
-        :alt="`Copertina ` + film.name"
+        :alt="`Copertina ` + film.title"
+        class="fluid"
       />
       <div class="title">{{ film.title }}</div>
       <div class="original-title">{{ film.original_title }}</div>
@@ -48,8 +49,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-img {
-  width: 100px;
-}
-</style>
+<style lang="scss" scoped></style>

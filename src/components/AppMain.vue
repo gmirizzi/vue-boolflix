@@ -1,17 +1,17 @@
 <template>
-  <main>
-    <section>
+  <main class="text-white">
+    <section v-show="films.length > 0" class="py-5">
       <div class="container">
         <h1>Film</h1>
-        <div class="row">
+        <div class="row gy-5">
           <FilmCard v-for="film in films" :key="film.id" :film="film" />
         </div>
       </div>
     </section>
-    <section>
+    <section v-show="TVs.length > 0" class="py-5">
       <div class="container">
         <h1>Serie TV</h1>
-        <div class="row">
+        <div class="row gy-5">
           <TVsCard v-for="serie in TVs" :key="serie.id" :serie="serie" />
         </div>
       </div>
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import FilmCard from "./FilmCard.vue";
 import TVsCard from "./TVsCard.vue";
+import FilmCard from "./FilmCard";
 
 export default {
   name: "AppMain",

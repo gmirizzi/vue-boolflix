@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <SearchBar @getFilms="populeArrayFilms" @getTVs="populeArrayTVs" />
+    <header class="d-flex justify-content-between align-items-center p-2">
+      <h1>BOOLFLIX</h1>
+      <SearchBar @getFilms="populeArrayFilms" @getTVs="populeArrayTVs" />
+    </header>
     <AppMain :films="arrFilms" :TVs="arrTVs" />
   </div>
 </template>
@@ -17,8 +20,8 @@ export default {
   },
   data() {
     return {
-      arrFilms: null,
-      arrTVs: null,
+      arrFilms: [],
+      arrTVs: [],
     };
   },
   methods: {
@@ -34,4 +37,14 @@ export default {
 
 <style lang="scss">
 @import "~mdb-ui-kit/css/mdb.min.css";
+#app {
+  background-color: #434343;
+  min-height: 100vh;
+  header {
+    background-color: black;
+    h1 {
+      color: red;
+    }
+  }
+}
 </style>
