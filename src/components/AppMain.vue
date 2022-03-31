@@ -6,31 +6,26 @@
   >
     Benvenuto
   </div>
-  <div
-    id="noresult"
-    v-else-if="(films.length == 0) & (TVs.length == 0)"
-    class="text-white text-center m-5 fw-bold text-uppercase"
-  >
-    Nessun risultato
+  <div v-else>
+    <main class="text-white">
+      <section v-show="films.length > 0" class="py-5">
+        <div class="container">
+          <h1>Film</h1>
+          <div class="row gy-5">
+            <FilmCard v-for="film in films" :key="film.id" :film="film" />
+          </div>
+        </div>
+      </section>
+      <section v-show="TVs.length > 0" class="py-5">
+        <div class="container">
+          <h1>Serie TV</h1>
+          <div class="row gy-5">
+            <TVsCard v-for="serie in TVs" :key="serie.id" :serie="serie" />
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-  <main class="text-white" v-else>
-    <section v-show="films.length > 0" class="py-5">
-      <div class="container">
-        <h1>Film</h1>
-        <div class="row gy-5">
-          <FilmCard v-for="film in films" :key="film.id" :film="film" />
-        </div>
-      </div>
-    </section>
-    <section v-show="TVs.length > 0" class="py-5">
-      <div class="container">
-        <h1>Serie TV</h1>
-        <div class="row gy-5">
-          <TVsCard v-for="serie in TVs" :key="serie.id" :serie="serie" />
-        </div>
-      </div>
-    </section>
-  </main>
 </template>
 
 <script>
@@ -87,8 +82,8 @@ export default {
         )
         .then((response) => {
           const cast = response.data.cast;
+          const castNames = [];
           if (cast.length > 0) {
-            const castNames = [];
             if (cast.length <= 5) {
               cast.forEach((el) => castNames.push(el.name));
               element.cast = castNames;
