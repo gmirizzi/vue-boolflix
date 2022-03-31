@@ -1,7 +1,14 @@
 <template>
   <div
+    id="default"
+    v-if="submitted == false"
+    class="text-white text-center m-5 fw-bold text-uppercase"
+  >
+    Benvenuto
+  </div>
+  <div
     id="noresult"
-    v-if="(films.length == 0) & (TVs.length == 0)"
+    v-else-if="(films.length == 0) & (TVs.length == 0)"
     class="text-white text-center m-5 fw-bold text-uppercase"
   >
     Nessun risultato
@@ -40,6 +47,7 @@ export default {
   props: {
     films: Array,
     TVs: Array,
+    submitted: Boolean,
   },
   updated() {
     this.films.forEach((element) => {

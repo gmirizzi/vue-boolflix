@@ -2,9 +2,13 @@
   <div id="app">
     <header class="d-flex justify-content-between align-items-center p-2">
       <h1>BOOLFLIX</h1>
-      <SearchBar @getFilms="populeArrayFilms" @getTVs="populeArrayTVs" />
+      <SearchBar
+        @getFilms="populeArrayFilms"
+        @getTVs="populeArrayTVs"
+        @searchOn="searchOn"
+      />
     </header>
-    <AppMain :films="arrFilms" :TVs="arrTVs" />
+    <AppMain :films="arrFilms" :TVs="arrTVs" :submitted="submitted" />
   </div>
 </template>
 
@@ -22,6 +26,7 @@ export default {
     return {
       arrFilms: [],
       arrTVs: [],
+      submitted: false,
     };
   },
   methods: {
@@ -30,6 +35,9 @@ export default {
     },
     populeArrayTVs(searchedTVs) {
       return (this.arrTVs = searchedTVs);
+    },
+    searchOn(searchBarSubmitted) {
+      this.submitted = searchBarSubmitted;
     },
   },
 };
