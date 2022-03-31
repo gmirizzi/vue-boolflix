@@ -11,7 +11,12 @@
         <FilterComponent @filtra="getGenre" class="ms-3" />
       </div>
     </header>
-    <AppMain :films="arrFilms" :TVs="arrTVs" :submitted="submitted" />
+    <AppMain
+      :films="arrFilms"
+      :TVs="arrTVs"
+      :submitted="submitted"
+      :selectedGenre="genre"
+    />
   </div>
 </template>
 
