@@ -1,10 +1,20 @@
 <template>
-  <select name="" id="">
-    <option value="">Seleziona un genere</option>
-    <option v-for="genre in genres" :key="genre.id" :value="genre.name">
-      {{ genre.name }}
-    </option>
-  </select>
+  <div>
+    <label for="select" class="text-white me-2">Seleziona un genere: </label>
+    <select name="" id="select">
+      <option value="">All</option>
+      <optgroup label="Film">
+        <option v-for="genre in filmGenres" :key="genre.id" :value="genre.name">
+          {{ genre.name }}
+        </option>
+      </optgroup>
+      <optgroup label="Serie Tv">
+        <option v-for="genre in tvsGenres" :key="genre.id" :value="genre.name">
+          {{ genre.name }}
+        </option>
+      </optgroup>
+    </select>
+  </div>
 </template>
 
 <script>
@@ -14,7 +24,8 @@ export default {
   name: "FilterComponent",
   data() {
     return {
-      genres: [],
+      filmGenres: [],
+      tvsGenres: [],
     };
   },
   beforeCreate() {
@@ -22,7 +33,12 @@ export default {
       .get(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=01af620fbe2924c05e6048caa6f5c225&language=it-IT"
       )
-      .then((res) => (this.genres = res.data.genres));
+      .then((res) => (this.filmGenres = res.data.genres));
+    axios
+      .get(
+        "https://api.themoviedb.org/3/genre/tv/list?api_key=01af620fbe2924c05e6048caa6f5c225&language=it-IT"
+      )
+      .then((res) => (this.tvsGenres = res.data.genres));
   },
 };
 </script>

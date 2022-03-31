@@ -2,7 +2,7 @@
   <div id="app">
     <header class="d-flex justify-content-between align-items-center p-2">
       <h1>BOOLFLIX</h1>
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
         <SearchBar
           @getFilms="populeArrayFilms"
           @getTVs="populeArrayTVs"
