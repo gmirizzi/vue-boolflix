@@ -50,8 +50,9 @@ export default {
     populeArrayTVs(searchedTVs) {
       return (this.arrTVs = searchedTVs);
     },
-    searchOn(searchBarSubmitted) {
+    searchOn(searchBarSubmitted, resetGenre) {
       this.submitted = searchBarSubmitted;
+      this.genre = resetGenre;
     },
   },
 };

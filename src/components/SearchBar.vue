@@ -1,9 +1,15 @@
 <template>
   <div>
     <form
-      @submit.prevent="searchTVs(), searchFilms(), $emit('searchOn', submitted)"
+      @submit.prevent="
+        searchTVs(), searchFilms(), $emit('searchOn', submitted, genre)
+      "
     >
-      <input type="search" v-model="query" />
+      <input
+        type="search"
+        v-model="query"
+        placeholder="Cerca film o serie TV"
+      />
       <button>Cerca</button>
     </form>
   </div>
@@ -20,6 +26,7 @@ export default {
       searchedFilms: [],
       searchedTVs: [],
       submitted: true,
+      genre: "",
     };
   },
   methods: {

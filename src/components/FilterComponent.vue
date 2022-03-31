@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="select" class="text-white me-2">Seleziona un genere: </label>
+    <label for="select" class="text-white me-2">Filtra per genere: </label>
     <select
       name=""
       id="select"
