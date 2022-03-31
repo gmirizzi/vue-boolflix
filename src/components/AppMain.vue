@@ -105,10 +105,14 @@ export default {
   overflow: auto;
   background-color: black;
   height: 500px;
+  transition: transform 1.6s;
   .info {
     display: none;
+    transform: rotateY(360deg);
+    transition: all 1.6s;
   }
   &:hover {
+    transform: rotateY(360deg);
     .poster {
       display: none;
     }
