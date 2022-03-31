@@ -42,6 +42,9 @@
         <div class="overview" v-show="film.overview">
           <span class="fw-bold">Overview: </span>{{ film.overview }}
         </div>
+        <div class="genres" v-show="film.genres">
+          <span class="fw-bold">Generi: </span>{{ film.genres }}
+        </div>
       </div>
     </div>
   </div>

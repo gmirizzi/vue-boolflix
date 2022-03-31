@@ -82,6 +82,15 @@ export default {
         });
     });
     this.TVs.forEach((element) => {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/tv/${element.id}?api_key=01af620fbe2924c05e6048caa6f5c225&language=it-IT`
+        )
+        .then((response) => {
+          element.genres = response.data.genres.map((el) => el.name);
+        });
+    });
+    this.TVs.forEach((element) => {
       return (element.vote_average = Math.floor(element.vote_average / 2) + 1);
     });
     this.TVs.forEach((element) => {
