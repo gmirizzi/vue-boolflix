@@ -1,7 +1,12 @@
 <template>
   <div>
     <label for="select" class="text-white me-2">Seleziona un genere: </label>
-    <select name="" id="select">
+    <select
+      name=""
+      id="select"
+      v-model="selectedGenre"
+      @change="$emit('filtra', selectedGenre)"
+    >
       <option value="">All</option>
       <optgroup label="Film">
         <option v-for="genre in filmGenres" :key="genre.id" :value="genre.name">
@@ -26,6 +31,7 @@ export default {
     return {
       filmGenres: [],
       tvsGenres: [],
+      selectedGenre: "",
     };
   },
   beforeCreate() {

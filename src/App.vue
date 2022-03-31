@@ -8,7 +8,7 @@
           @getTVs="populeArrayTVs"
           @searchOn="searchOn"
         />
-        <FilterComponent class="ms-3" />
+        <FilterComponent @filtra="getGenre" class="ms-3" />
       </div>
     </header>
     <AppMain :films="arrFilms" :TVs="arrTVs" :submitted="submitted" />
@@ -32,9 +32,13 @@ export default {
       arrFilms: [],
       arrTVs: [],
       submitted: false,
+      genre: "",
     };
   },
   methods: {
+    getGenre(selected) {
+      this.genre = selected;
+    },
     populeArrayFilms(searchedFilms) {
       return (this.arrFilms = searchedFilms);
     },
