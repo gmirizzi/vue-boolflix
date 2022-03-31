@@ -1,5 +1,12 @@
 <template>
-  <main class="text-white">
+  <div
+    id="noresult"
+    v-if="(films.length == 0) & (TVs.length == 0)"
+    class="text-white text-center m-5 fw-bold text-uppercase"
+  >
+    Nessun risultato
+  </div>
+  <main class="text-white" v-else>
     <section v-show="films.length > 0" class="py-5">
       <div class="container">
         <h1>Film</h1>
@@ -95,13 +102,6 @@ export default {
   overflow: auto;
   background-color: black;
   height: 500px;
-  .poster {
-    height: 100%;
-    img {
-      height: 100%;
-      object-fit: contain;
-    }
-  }
   .info {
     display: none;
   }

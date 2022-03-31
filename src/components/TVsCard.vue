@@ -5,7 +5,7 @@
         <img
           :src="`https://image.tmdb.org/t/p/w342` + serie.poster_path"
           :alt="`Copertina ` + serie.name"
-          class="img-fluid"
+          class="img-fluid h-100"
         />
       </div>
       <div class="info">
