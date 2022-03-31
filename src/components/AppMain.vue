@@ -82,8 +82,8 @@ export default {
         )
         .then((response) => {
           const cast = response.data.cast;
-          const castNames = [];
           if (cast.length > 0) {
+            const castNames = [];
             if (cast.length <= 5) {
               cast.forEach((el) => castNames.push(el.name));
               element.cast = castNames;

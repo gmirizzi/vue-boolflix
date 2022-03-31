@@ -42,7 +42,7 @@
         <div class="overview" v-show="serie.overview">
           <span class="fw-bold">Overview: </span>{{ serie.overview }}
         </div>
-        <div class="cast">
+        <div class="cast" v-show="serie.cast">
           <span class="fw-bold">Cast: </span>
           <ul>
             <li v-for="actor in serie.cast" :key="actor">{{ actor }}</li>
