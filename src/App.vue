@@ -2,11 +2,14 @@
   <div id="app">
     <header class="d-flex justify-content-between align-items-center p-2">
       <h1>BOOLFLIX</h1>
-      <SearchBar
-        @getFilms="populeArrayFilms"
-        @getTVs="populeArrayTVs"
-        @searchOn="searchOn"
-      />
+      <div class="d-flex">
+        <SearchBar
+          @getFilms="populeArrayFilms"
+          @getTVs="populeArrayTVs"
+          @searchOn="searchOn"
+        />
+        <FilterComponent class="ms-3" />
+      </div>
     </header>
     <AppMain :films="arrFilms" :TVs="arrTVs" :submitted="submitted" />
   </div>
@@ -15,12 +18,14 @@
 <script>
 import SearchBar from "./components/SearchBar.vue";
 import AppMain from "./components/AppMain.vue";
+import FilterComponent from "./components/FilterComponent.vue";
 
 export default {
   name: "App",
   components: {
     AppMain,
     SearchBar,
+    FilterComponent,
   },
   data() {
     return {

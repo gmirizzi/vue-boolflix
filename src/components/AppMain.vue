@@ -44,6 +44,11 @@ export default {
     TVs: Array,
     submitted: Boolean,
   },
+  data() {
+    return {
+      genres: [],
+    };
+  },
   updated() {
     this.films.forEach((element) => {
       switch (element.original_language) {
