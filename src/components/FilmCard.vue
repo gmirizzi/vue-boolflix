@@ -42,6 +42,12 @@
         <div class="overview" v-show="film.overview">
           <span class="fw-bold">Overview: </span>{{ film.overview }}
         </div>
+        <div class="cast" v-show="arrNames.length > 0">
+          <span class="fw-bold">Cast: </span>
+          <ul>
+            <li v-for="actor in arrNames" :key="actor">{{ actor }}</li>
+          </ul>
+        </div>
         <div class="genres" v-show="film.genres">
           <span class="fw-bold">Generi: </span>{{ film.genres }}
         </div>
@@ -51,6 +57,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "FilmCard",
   data() {
@@ -60,10 +68,32 @@ export default {
         "flag flag-italy",
         "flag flag-france",
       ],
+      arrNames: [],
     };
   },
   props: {
     film: Object,
+  },
+  created() {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${this.film.id}/credits?api_key=01af620fbe2924c05e6048caa6f5c225&language=it-IT`
+      )
+      .then((response) => {
+        const cast = response.data.cast;
+        if (cast.length > 0) {
+          const castNames = [];
+          if (cast.length <= 5) {
+            cast.forEach((el) => castNames.push(el.name));
+            this.arrNames = castNames;
+          } else {
+            for (let index = 0; index <= 4; index++) {
+              castNames.push(cast[index].name);
+            }
+            this.arrNames = castNames;
+          }
+        }
+      });
   },
 };
 </script>
